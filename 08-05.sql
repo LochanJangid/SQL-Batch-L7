@@ -73,8 +73,17 @@ from employees as emp join employees as mngr where emp.manager_id=mngr.emp_id  a
 select empl.emp_name, mngr.emp_name from employees as empl
 left join employees as mngr on empl.manager_id=mngr.emp_id;
 
+select * from employees;
+select e.emp_name,m.emp_name from employees as e 
+join employees as m where e.emp_name = m.emp_name;
+
+select * from employees;
+
 -- q. show employee and its grand manager
-select emp.emp_id, mngr.emp_id, grandmngr.emp_id
+select emp.emp_id as emp_id, mngr.emp_id as mngr_id, grandmngr.emp_id as grandmgnr_id
+from employees as emp
+join employees as mngr on emp.manager_id=mngr.emp_id
+join employees as grandmngr on mngr.manager_id=grandmngr.emp_id;
 
 -- q. find employees who are also the managers
 select distinct mngr.emp_name
